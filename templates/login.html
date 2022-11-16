@@ -1,196 +1,32 @@
-<!doctype html>
-<html lang="en" class="h-100">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AskMe</title>   
+{%extends 'inc/base.html'%}
+{%load static%}
+{%block content%}
 
-<link href="../static/css/bootstrap.css" rel="stylesheet">
-<link href="../static/css/styles.css" rel="stylesheet">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-    </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="sticky-footer-navbar.css" rel="stylesheet">
-  </head>
-  <body class="d-flex flex-column h-100">
-    
-<header>
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Askme</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-success" href="ask.html" role="button" style="margin-left: 20px;">Add Question!</a>
-          </li>
-        </ul>
-        <div class="profile">
-            <div class="row" style="width: 175px;">
-                <div class="col-6">
-                    <a class="nav-link" href="login.html" style = "color:rgb(26, 155, 198);">log in</a> 
-                </div>
-                <div class="col-6">
-                    <a class="nav-link" href="signup.html" style = "color:rgb(26, 155, 198);">register</a> 
-                </div>
-            </div>
-        </div>
-        
-      </div>
+<div style = "padding-bottom: 20px;">
+    <div class = "row">
+        <div class="col-3"><h1>Log in</h1></div>
     </div>
-  </nav>
-</header>
-
-
-<!-- Begin page content -->
-<main class="flex-shrink-0">
-    <div class = "container" >
-        <div style = "padding-bottom: 20px;">
-            <div class = "row">
-                <div class="col-3"><h1>Log in</h1></div>
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col-8">
-                <p style="color: red">Sorry, wrong password or login! <p>
-                <div class="cl_form">    
-                    <div class="form-group row">
-                        <label for="inputLogin">Login</label>
-                        <input type="text" id="inputLogin" class="form-control" aria-describedby="LoginHelp" style="width: 50%;" maxlength="25">
-                         <small id="LoginHelp" class="text-muted">
-                              Enter your login (max 25 characters)
-                        </small>
-                    </div>
-                </div>
-
-                <div class="cl_form"> 
-                    <div class="form-group row">
-                    <label for="inputPassword">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" aria-describedby="passwordHelp" style="width:50%;" maxlength="20">
-                    <small id="passwordHelp" class="text-muted">
-                        Must be 8-20 characters long.
-                    </small>
-                    </div>
-                </div>
-                <button type="button" class="btn btn-success" style="margin:  0 0 5% 5%; width: 15%;">Log in!</button>
-                <a href="signup.html" style="padding: 10%;">create new account</a>
-            </div>
-
-            <div class = "col-4">
-                <h1>Popular Tags</h1>
-                <div class="row">
-                    <div class="col-4">
-                        <a class="tag" href="#">IT</a>
-                    </div>
-                    <div class="col-4">
-                        <a class="tag" href="#">Automobiles</a>
-                    </div>
-                    <div class="col-4">
-                        <a class="tag" href="#">C++</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <a class="tag" href="#">Python</a>
-                    </div>
-                    <div class="col-4">
-                        <a class="tag" href="#">Maining</a>
-                    </div>
-                    <div class="col-4">
-                        <a class="tag" href="#">Games</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <a class="tag" href="#">Nature</a>
-                    </div>
-                    <div class="col-4">
-                        <a class="tag" href="#">Cooking</a>
-                    </div>
-                    <div class="col-4">
-                        <a class="tag" href="#">Health</a>
-                    </div>
-                </div>
-                <h1 style="margin-top: 10%;">Best Members</h1>
-                <div class="row">
-                    <ul style = "margin-left: 10%;">
-                        <li><a class="member" href="#">John Bear</a></li>
-                        <li><a class="member" href="#">Pilot</a></li>
-                        <li><a class="member" href="#">Vasyan</a></li>
-                        <li><a class="member" href="#">Tock</a></li>
-                        <li><a class="member" href="#">Steve Jobs</a></li>
-                        <li><a class="member" href="#">New123</a></li>
-                        <li><a class="member" href="#">Me</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+</div>
+<p style="color: red">Sorry, wrong password or login! <p>
+<div class="cl_form">    
+    <div class="form-group row">
+        <label for="inputLogin">Login</label>
+        <input type="text" id="inputLogin" class="form-control" aria-describedby="LoginHelp" style="width: 50%;" maxlength="25">
+          <small id="LoginHelp" class="text-muted">
+              Enter your login (max 25 characters)
+        </small>
     </div>
-</main>
+</div>
 
-  </body>
-</html>
+<div class="cl_form"> 
+    <div class="form-group row">
+    <label for="inputPassword">Password</label>
+    <input type="password" id="inputPassword" class="form-control" aria-describedby="passwordHelp" style="width:50%;" maxlength="20">
+    <small id="passwordHelp" class="text-muted">
+        Must be 8-20 characters long.
+    </small>
+    </div>
+</div>
+<button type="button" class="btn btn-success" style="margin:  0 0 5% 5%; width: 15%;">Log in!</button>
+<a href="signup.html" style="padding: 10%;">create new account</a>
+{%endblock%}

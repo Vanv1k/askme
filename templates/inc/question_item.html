@@ -1,13 +1,11 @@
-{%extends 'inc/base.html'%}
 {%load static%}
-{%block content%}
-<div class = "question one_question">
+<div class = "question">
     <div class="row">
         <div class="col-2">
             <div class="row">
                 <div class="col-12">
                     <div class="avatar">
-                        <img src="{% static 'img/grut.jpg' %}" alt=""> </img>
+                        <img src="{%static 'img/grut.jpg'%}" alt=""> </img>
                     </div>
                 </div>
             </div>
@@ -40,32 +38,21 @@
             </div>
         </div>
         <div class="col-10">
-            <h2 class = "question-title">{{question.title}}</h2>
+            <h2 class = "question-title"><a href="{% url 'question' id=question.id %}">{{question.title}}</a></h2>
             <div class="question-text">
-               {{question.text}}
+                {{question.text}}
             </div>
-            <p>Tags:</p>
-            {%for tag in question.tags %}
-             <a class="tag" href="{% url 'tag' tag_name=tag %}">{{ tag }}</a>
-            {% endfor %}
+            <div class = "row">
+                <div class="col-5">
+                    <a class="url" href="#">answers ({{question.numOfAnswers}})</a>
+                </div>
+                <div class="col-7">
+                    <p>Tags:</p>
+                    {%for tag in question.tags %}
+                     <a class="tag" href="{% url 'tag' tag_name=tag %}">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-
-
-{%for answer in answers%}
-    {%include 'inc/answer_item.html'%}
-{%endfor%}
-
-{%include 'inc/paginator.html'%}
-
-<div class="form-group" style="padding: 5% 5% 5% 10%;">
-    <form>
-        <label for="AnswerArea" >Know answer?</label>
-        <textarea class="form-control" id="AnswerArea" rows="5" placeholder="Enter your answer here"></textarea>
-    </form>
-</div>
-
-<button type="button" class="btn btn-success" style="margin: 0 0 10% 80%;">Send answer</button>
-{%endblock%}

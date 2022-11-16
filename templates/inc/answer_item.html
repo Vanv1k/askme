@@ -1,20 +1,18 @@
-{%extends 'inc/base.html'%}
 {%load static%}
-{%block content%}
-<div class = "question one_question">
+<div class = "question">
     <div class="row">
         <div class="col-2">
             <div class="row">
                 <div class="col-12">
                     <div class="avatar">
-                        <img src="{% static 'img/grut.jpg' %}" alt=""> </img>
+                        <img src="{% static 'img/business-man.jpg' %}" alt=""> </img>
                     </div>
                 </div>
             </div>
             <div class="row" >
                 <div class="col-3">
                     <div class="likes">
-                        <p>{{question.likes}}</p>
+                        <p>{{answer.likes}}</p>
                     </div>
                 </div>
                 <div class="col-9">
@@ -40,32 +38,17 @@
             </div>
         </div>
         <div class="col-10">
-            <h2 class = "question-title">{{question.title}}</h2>
             <div class="question-text">
-               {{question.text}}
+               {{answer.text}}
             </div>
-            <p>Tags:</p>
-            {%for tag in question.tags %}
-             <a class="tag" href="{% url 'tag' tag_name=tag %}">{{ tag }}</a>
-            {% endfor %}
+            <div class = "row" style="margin-top: 5%;">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Correct!
+                    </label>
+                    </div>
+            </div>
         </div>
     </div>
 </div>
-
-
-
-{%for answer in answers%}
-    {%include 'inc/answer_item.html'%}
-{%endfor%}
-
-{%include 'inc/paginator.html'%}
-
-<div class="form-group" style="padding: 5% 5% 5% 10%;">
-    <form>
-        <label for="AnswerArea" >Know answer?</label>
-        <textarea class="form-control" id="AnswerArea" rows="5" placeholder="Enter your answer here"></textarea>
-    </form>
-</div>
-
-<button type="button" class="btn btn-success" style="margin: 0 0 10% 80%;">Send answer</button>
-{%endblock%}
